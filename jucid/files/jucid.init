@@ -4,17 +4,16 @@ START=12
 
 USE_PROCD=1
 NAME=jucid
-PROG=/usr/bin/jucid
+PROG=/usr/bin/revorpcd
 
 start_service() {
 	procd_open_instance
-	procd_set_param command "$PROG"
+	procd_set_param command $PROG -p /usr/lib/juci/api/
 	procd_close_instance
 }
 
 stop_service() {
-	service_stop /sbin/jucid
-	killall jucid 
+	service_stop $PROG
 }
 
 restart_service() {
@@ -23,5 +22,5 @@ restart_service() {
 }
 
 reload() {
-	service_reload /sbin/jucid
+	service_reload $PROG
 }
