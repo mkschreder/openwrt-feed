@@ -20,7 +20,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/jucid
   SECTION:=base
   CATEGORY:=Base system
-  DEPENDS:=+libblobpack +libuci +libusys +libutype +liblua +libwebsockets
+  DEPENDS:=+!BUSYBOX_CONFIG_SHA1SUM:coreutils-sha1sum +libblobpack +libuci +libusys +libutype +liblua +libwebsockets
   TITLE:=JUCI Backend Server
 endef
 
